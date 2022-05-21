@@ -6,6 +6,7 @@ import CustomHook from "../components/CustomHook"
 import { Box, Checkbox, Fab, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Stack } from "@mui/material";
 import { Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon } from "@mui/icons-material";
 import ConfirmDialog from "../components/ConfirmDialog";
+import Style from "../components/Style";
 
 export default function HomePage() {
   const [todos, setTodos] = useState([]);
@@ -37,6 +38,7 @@ return(
   <Page>  
   <AppBar />
   <CustomHook />
+  <Style />
 
   <Box sx={{display: 'grid', gap: 2, gridTemplateColums: '1fr', p:2}}>
   {[...todos, ...todos, ...todos, ...todos].map((todoItem) => (
