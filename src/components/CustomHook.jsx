@@ -3,7 +3,7 @@ import { useEffect,useState } from "react"
 
 const api = 'https://cat-fact.herokuapp.com/facts';
 
-function customHook() {
+function useCustomHook(api) {
     const [chackFact,setChackFact] = useState([]);
     const [isLoading,setIsLoading] = useState(true);
     const [errors,setError] = useState([]);
@@ -35,7 +35,7 @@ function customHook() {
 
 
 export default function UseMyCustomHook(){
-    const { isLoading,chackFact, errors, setCount } = customHook();
+    const { isLoading,chackFact, errors, setCount } = useCustomHook();
     return (
         <Box sx={{
             display: 'grid',
