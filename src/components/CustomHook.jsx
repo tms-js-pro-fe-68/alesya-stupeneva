@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import { useEffect,useState } from "react"
 
-const api = 'https://cat-fact.herokuapp.com/facts';
 
 function useCustomHook(api) {
     const [chackFact,setChackFact] = useState([]);
@@ -35,7 +34,7 @@ function useCustomHook(api) {
 
 
 export default function UseMyCustomHook(){
-    const { isLoading,chackFact, errors, setCount } = useCustomHook();
+    const { isLoading,chackFact, errors, setCount } = useCustomHook('https://cat-fact.herokuapp.com/facts');
     return (
         <Box sx={{
             display: 'grid',
