@@ -1,18 +1,24 @@
 import{ Box } from '@mui/material';
-import { useEffect } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+const Context = createContext();
+export const useContextOnPage = () => useContext(Context);
 
 export default function Page({ sx, ...otherProps }) {
     const navigate = useNavigate();
     const navigateToLogin =() => navigate('/login', { replace: true});
-  
+    const [isInitialized, setIsInitialized] = useState(false);
     useEffect(() => {
-      if (!sessionStorage.token)
+      if (sessionStorage.token){
+        api.setup(sessionStorage.token);
+        setIsInitialized(true)
+      } else {
         navigateToLogin();
+      }
   }, []);
-
-
     return(
+      <Context.Provider value={{isInitialized}}>
         <Box sx={{
              height: '100vh', 
              width: '100 vw',
@@ -22,5 +28,6 @@ export default function Page({ sx, ...otherProps }) {
         }}
         {...otherProps}
         />
+        </Context.Provider>
     )
 }

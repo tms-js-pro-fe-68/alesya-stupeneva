@@ -7,6 +7,7 @@ import { Box, Checkbox, Fab, IconButton, List, ListItem, ListItemButton, ListIte
 import { Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon } from "@mui/icons-material";
 import ConfirmDialog from "../components/ConfirmDialog";
 import Style from "../components/Style";
+import ContextQuery from "../components/ContextQuery";
 
 export default function HomePage() {
   const [todos, setTodos] = useState([]);
@@ -39,6 +40,7 @@ return(
   <AppBar />
   <CustomHook />
   <Style />
+  <ContextQuery />
 
   <Box sx={{display: 'grid', gap: 2, gridTemplateColums: '1fr', p:2}}>
   {[...todos, ...todos, ...todos, ...todos].map((todoItem) => (
